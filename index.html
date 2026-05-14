@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="game-container">
         <!-- Titolo centrale in alto -->
-        <h1 class="select-title">Select Characters</h1>
-        
+        <h1 class="select-title">Select Character</h1>
+
         <!-- Left Wheel per la selezione personaggio -->
         <div class="wheel-container left-wheel">
             <div class="player-indicator">
                 <div class="selected-name" id="selected-character-name">Goku</div>
                 <div class="selection-hint">Press ENTER or Click character to select</div>
             </div>
-            
+
             <!-- Anello di selezione fisso a sinistra -->
             <div class="selection-ring" id="selection-ring" onclick="enterCustomization()"></div>
             <div class="selection-wave inner-wave"></div>
@@ -27,7 +29,7 @@
             <div class="wheel" id="character-wheel">
                 <!-- Character slots will be injected by JS -->
             </div>
-            
+
             <!-- Freccette di scorrimento -->
             <div class="arrow up-arrow" title="Precedente">▲</div>
             <div class="arrow down-arrow" title="Successivo">▼</div>
@@ -39,7 +41,7 @@
                 <h2 id="custom-char-name">Character Name</h2>
                 <div class="level-badge">LV <span id="custom-level">1</span></div>
             </div>
-            
+
             <div class="custom-body">
                 <!-- Sezione Stats -->
                 <div class="stats-section">
@@ -74,16 +76,18 @@
                     <div class="password-box" id="password-display"></div>
                 </div>
             </div>
-            
+
             <div class="custom-footer">
                 <button class="action-btn back-btn" id="btn-back">BACK (Esc)</button>
                 <button class="action-btn generate-btn" id="btn-generate">GENERATE PASSWORD</button>
             </div>
         </div>
-        
+
         <!-- Footer notice -->
         <div class="footer-notice">
-            Se la password non funziona o trovi dei bug, <a href="https://github.com/LucaPalumbo/DBZB3-Passwords-Generator/issues" target="_blank">apri una issue qui</a>.
+            Se la password non funziona o trovi dei bug, <a
+                href="https://github.com/LucaPalumbo/DBZB3-Passwords-Generator/issues" target="_blank">apri una issue
+                qui</a>.
         </div>
     </div>
 
@@ -115,4 +119,5 @@
     <script src="password_generator.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
