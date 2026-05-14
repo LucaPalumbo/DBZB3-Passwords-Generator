@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBZ Budokai 3 Password Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Titolo centrale in alto -->
+        <h1 class="select-title">Select Characters</h1>
+        
+        <!-- Left Wheel per la selezione personaggio -->
+        <div class="wheel-container left-wheel">
+            <div class="player-indicator">
+                <div class="selected-name" id="selected-character-name">Goku</div>
+                <div class="selection-hint">Press ENTER or Click character to select</div>
+            </div>
+            
+            <!-- Anello di selezione fisso a sinistra -->
+            <div class="selection-ring" id="selection-ring" onclick="enterCustomization()"></div>
+            <div class="selection-wave inner-wave"></div>
+            <div class="selection-wave outer-wave"></div>
+
+            <div class="wheel" id="character-wheel">
+                <!-- Character slots will be injected by JS -->
+            </div>
+            
+            <!-- Freccette di scorrimento -->
+            <div class="arrow up-arrow" title="Precedente">▲</div>
+            <div class="arrow down-arrow" title="Successivo">▼</div>
+        </div>
+
+        <!-- Customization Panel (Destra) -->
+        <div class="customization-panel hidden" id="customization-panel">
+            <div class="custom-header">
+                <h2 id="custom-char-name">Character Name</h2>
+                <div class="level-badge">LV <span id="custom-level">1</span></div>
+            </div>
+            
+            <div class="custom-body">
+                <!-- Sezione Stats -->
+                <div class="stats-section">
+                    <h3>Statistics</h3>
+                    <div class="stats-list" id="stats-list">
+                        <!-- Stats saranno generate via JS -->
+                    </div>
+                </div>
+
+                <!-- Sezione Skills -->
+                <div class="skills-section">
+                    <h3>Skills / Capsules</h3>
+                    <div class="skills-list" id="skills-list">
+                        <!-- 7 slot abilità -->
+                        <div class="skill-slot empty">Slot 1</div>
+                        <div class="skill-slot empty">Slot 2</div>
+                        <div class="skill-slot empty">Slot 3</div>
+                        <div class="skill-slot empty">Slot 4</div>
+                        <div class="skill-slot empty">Slot 5</div>
+                        <div class="skill-slot empty">Slot 6</div>
+                        <div class="skill-slot empty">Slot 7</div>
+                    </div>
+                </div>
+
+                <div class="password-prefix-section">
+                    <label for="pw-prefix">Password Prefix (opt, max 5):</label>
+                    <input type="text" id="pw-prefix" maxlength="5" placeholder="ABCDE">
+                </div>
+
+                <div id="password-output-section" class="hidden">
+                    <h4>Your Password:</h4>
+                    <div class="password-box" id="password-display"></div>
+                </div>
+            </div>
+            
+            <div class="custom-footer">
+                <button class="action-btn back-btn" id="btn-back">BACK (Esc)</button>
+                <button class="action-btn generate-btn" id="btn-generate">GENERATE PASSWORD</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skill Selection Modal -->
+    <div id="skill-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Select Skill (<span id="slots-available">7</span> slots left)</h3>
+                <button class="close-btn" id="close-modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div class="skill-tabs">
+                    <button class="tab-btn active" data-type="All">All</button>
+                    <button class="tab-btn" data-type="Ability">Ability</button>
+                    <button class="tab-btn" data-type="Item">Item</button>
+                    <button class="tab-btn" data-type="Equipment">Equipment</button>
+                </div>
+                <div class="skills-grid" id="modal-skills-list">
+                    <!-- Skills will be injected here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="action-btn back-btn" id="btn-unequip">UNEQUIP SLOT</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="csv_data.js"></script>
+    <script src="password_generator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
